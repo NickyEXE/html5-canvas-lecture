@@ -15,6 +15,17 @@ function intersect(r1, r2) {
 new Obstacle(canvas, context)
 setInterval(() => new Obstacle(canvas, context), 2000)
 
+function lose(){
+  toggleStart()
+  context.font = "30px 'Press Start 2P'"
+  context.textAlign = "center";
+  context.fillText("You lose :(", canvas.width/2, canvas.height/2)
+}
+
+function reset(){
+  Obstacle.all = []
+}
+
 function loop(){
   context.clearRect(0,0, canvas.width, canvas.height)
   player.update()
@@ -23,16 +34,12 @@ function loop(){
   Obstacle.all.forEach(obstacle => obstacle.render())
   Obstacle.all.forEach(obstacle => {
     if (intersect(player, obstacle)){
-      toggleStart()
-      context.font = "60px Press Start 2P"
-      context.textAlign = "center";
-      context.fillText("You lose :(", canvas.width/2, canvas.height/2)
+      lose()
+      reset()
     }
   })
-
   if (playing){window.requestAnimationFrame(loop)}
 }
-
 
 const toggleStart = () => {
   if (playing) playing = false
