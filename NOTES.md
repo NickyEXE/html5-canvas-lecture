@@ -1,4 +1,4 @@
-1. draw a rectangle
+<!-- 1. draw a rectangle -->
 2. animate the rectangle
 2a. give ourselves the ability to start/stop the animation
 3. turn the rectangle into a Player
