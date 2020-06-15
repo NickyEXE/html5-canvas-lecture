@@ -1,5 +1,7 @@
 class Obstacle {
 
+    static all = []
+
     constructor(canvas, context){
         this.canvas = canvas
         this.context = context
@@ -28,5 +30,3 @@ class Obstacle {
     }
 
 }
-
-Obstacle.all = []
